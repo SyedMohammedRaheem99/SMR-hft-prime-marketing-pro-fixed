@@ -6,49 +6,31 @@ const services = [
     id: "web",
     title: "Web Development",
     desc: "React / Next.js — high-performance, SEO-friendly scalable frontends.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <path d="M3 5h18M3 12h18M3 19h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: "💻",
   },
   {
     id: "app",
     title: "App Development",
     desc: "Mobile-first apps — smooth, native-feel UX and efficient builds.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
-    ),
+    icon: "📱",
   },
   {
     id: "review",
     title: "Code Review",
     desc: "Audits, CI gating & performance optimization to ship safely.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <path d="M8 12l2 2 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: "🔍",
   },
   {
     id: "devops",
     title: "DevOps / Maintenance",
     desc: "CI/CD, monitoring & hosting — always-on systems and quick rollback.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1" />
-      </svg>
-    ),
+    icon: "⚙️",
   },
 ];
 
 const container = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.12 },
-  },
+  show: { transition: { staggerChildren: 0.12 } },
 };
 
 const item = {
@@ -72,19 +54,19 @@ export default function Services() {
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
         >
-          {services.map((s, i) => (
+          {services.map((s) => (
             <motion.article
               key={s.id}
               variants={item}
-              className="p-6 rounded-xl bg-white/60 dark:bg-slate-900/60 glass shadow-sm hover:shadow-xl transition transform hover:-translate-y-1"
+              className="p-6 rounded-xl bg-white/60 dark:bg-slate-900/60 shadow-sm hover:shadow-xl transition transform hover:-translate-y-1"
             >
               <div className="flex items-start gap-4">
-                <div className="p-2 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100">
-                  {s.icon}
-                </div>
+                <div className="text-2xl">{s.icon}</div>
                 <div>
                   <h3 className="font-semibold text-lg">{s.title}</h3>
-                  <p className="text-slate-500 dark:text-slate-300 mt-2 text-sm">{s.desc}</p>
+                  <p className="text-slate-500 dark:text-slate-300 mt-2 text-sm">
+                    {s.desc}
+                  </p>
                 </div>
               </div>
             </motion.article>
