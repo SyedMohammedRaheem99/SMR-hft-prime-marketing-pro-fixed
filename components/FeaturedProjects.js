@@ -11,15 +11,14 @@ export default function FeaturedProjects() {
         <div className="grid md:grid-cols-3 gap-6 mt-6">
           {projects.map((p) => (
             <Link key={p.id} href={`/case-studies/${p.slug}`}>
-              <a className="block rounded-xl overflow-hidden bg-white/60 dark:bg-slate-900/60 p-4 shadow hover:shadow-xl transition">
-                <div className="w-full h-40 relative rounded overflow-hidden">
+              <a className="block rounded-xl overflow-hidden p-4 bg-white/60 dark:bg-slate-900/60 hover:shadow-xl transition transform hover:-translate-y-1">
+                <div className="w-full h-40 md:h-48 relative rounded overflow-hidden bg-slate-50 dark:bg-slate-900/40">
                   <Image
                     src={p.heroImage}
                     alt={p.title}
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="(min-width: 1024px) 33vw, 100vw"
-                    priority={false}
                   />
                 </div>
                 <div className="mt-3 font-semibold">{p.title}</div>
