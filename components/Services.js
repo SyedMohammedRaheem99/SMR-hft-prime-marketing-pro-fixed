@@ -11,7 +11,47 @@ const services = [
     color: "from-blue-500 to-indigo-600",
     bgColor: "from-blue-50 to-indigo-50",
     darkBgColor: "from-blue-900/20 to-indigo-900/20",
-    features: ["React/Next.js", "SEO Optimized", "High Performance", "Scalable Architecture"]
+    features: ["React/Next.js", "SEO Optimized", "High Performance", "Scalable Architecture"],
+    packages: [
+      {
+        name: "Basic",
+        price: "$2,999",
+        description: "Perfect for startups and small businesses",
+        features: [
+          "5-page responsive website",
+          "Basic SEO optimization",
+          "Mobile-first design",
+          "Contact form integration",
+          "1 month support"
+        ]
+      },
+      {
+        name: "Professional",
+        price: "$7,999",
+        description: "Ideal for growing businesses",
+        features: [
+          "Custom web application",
+          "Advanced SEO & Analytics",
+          "CMS integration",
+          "Payment gateway setup",
+          "Performance optimization",
+          "3 months support"
+        ]
+      },
+      {
+        name: "Enterprise",
+        price: "$15,999+",
+        description: "For large-scale applications",
+        features: [
+          "Complex web platform",
+          "Microservices architecture",
+          "Advanced security features",
+          "Third-party integrations",
+          "Load balancing & scaling",
+          "12 months support"
+        ]
+      }
+    ]
   },
   {
     id: "app",
@@ -21,7 +61,47 @@ const services = [
     color: "from-purple-500 to-pink-600",
     bgColor: "from-purple-50 to-pink-50",
     darkBgColor: "from-purple-900/20 to-pink-900/20",
-    features: ["Native Feel", "Smooth UX", "Cross-Platform", "Efficient Builds"]
+    features: ["Native Feel", "Smooth UX", "Cross-Platform", "Efficient Builds"],
+    packages: [
+      {
+        name: "Basic",
+        price: "$4,999",
+        description: "Simple mobile app solution",
+        features: [
+          "Single platform (iOS or Android)",
+          "5 core screens",
+          "Basic UI/UX design",
+          "Push notifications",
+          "App store submission"
+        ]
+      },
+      {
+        name: "Professional",
+        price: "$12,999",
+        description: "Full-featured mobile application",
+        features: [
+          "Cross-platform (iOS & Android)",
+          "Custom UI/UX design",
+          "Backend API integration",
+          "User authentication",
+          "Payment processing",
+          "Analytics integration"
+        ]
+      },
+      {
+        name: "Enterprise",
+        price: "$25,999+",
+        description: "Advanced mobile solutions",
+        features: [
+          "Native iOS & Android apps",
+          "Complex business logic",
+          "Offline functionality",
+          "Advanced security",
+          "Third-party integrations",
+          "Ongoing maintenance"
+        ]
+      }
+    ]
   },
   {
     id: "review",
@@ -31,7 +111,47 @@ const services = [
     color: "from-emerald-500 to-teal-600",
     bgColor: "from-emerald-50 to-teal-50",
     darkBgColor: "from-emerald-900/20 to-teal-900/20",
-    features: ["Code Audits", "CI/CD Integration", "Performance Analysis", "Security Review"]
+    features: ["Code Audits", "CI/CD Integration", "Performance Analysis", "Security Review"],
+    packages: [
+      {
+        name: "Basic",
+        price: "$1,499",
+        description: "Essential code review",
+        features: [
+          "Code quality assessment",
+          "Basic security scan",
+          "Performance review",
+          "Documentation review",
+          "Detailed report"
+        ]
+      },
+      {
+        name: "Professional",
+        price: "$3,999",
+        description: "Comprehensive code audit",
+        features: [
+          "Deep code analysis",
+          "Security vulnerability scan",
+          "Performance optimization",
+          "Architecture review",
+          "CI/CD pipeline setup",
+          "Best practices guide"
+        ]
+      },
+      {
+        name: "Enterprise",
+        price: "$8,999+",
+        description: "Complete system audit",
+        features: [
+          "Full system architecture review",
+          "Advanced security audit",
+          "Scalability assessment",
+          "Team training sessions",
+          "Custom tooling setup",
+          "Ongoing consultation"
+        ]
+      }
+    ]
   },
   {
     id: "devops",
@@ -41,7 +161,47 @@ const services = [
     color: "from-orange-500 to-red-600",
     bgColor: "from-orange-50 to-red-50",
     darkBgColor: "from-orange-900/20 to-red-900/20",
-    features: ["CI/CD Pipeline", "24/7 Monitoring", "Cloud Hosting", "Quick Rollback"]
+    features: ["CI/CD Pipeline", "24/7 Monitoring", "Cloud Hosting", "Quick Rollback"],
+    packages: [
+      {
+        name: "Basic",
+        price: "$999/mo",
+        description: "Essential DevOps support",
+        features: [
+          "Basic monitoring setup",
+          "Simple CI/CD pipeline",
+          "Cloud hosting management",
+          "Monthly reports",
+          "Email support"
+        ]
+      },
+      {
+        name: "Professional",
+        price: "$2,499/mo",
+        description: "Advanced DevOps management",
+        features: [
+          "24/7 monitoring & alerts",
+          "Advanced CI/CD workflows",
+          "Auto-scaling setup",
+          "Security updates",
+          "Performance optimization",
+          "Priority support"
+        ]
+      },
+      {
+        name: "Enterprise",
+        price: "$4,999+/mo",
+        description: "Complete infrastructure management",
+        features: [
+          "Custom infrastructure design",
+          "Multi-cloud deployment",
+          "Advanced security measures",
+          "Disaster recovery setup",
+          "Dedicated DevOps engineer",
+          "24/7 phone support"
+        ]
+      }
+    ]
   },
 ];
 
@@ -83,6 +243,7 @@ const titleVariants = {
 
 export default function Services() {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [selectedService, setSelectedService] = useState(null);
 
   return (
     <section className="relative py-24 bg-slate-50 dark:bg-slate-900 overflow-hidden">
@@ -216,20 +377,19 @@ export default function Services() {
                     </div>
                   </motion.div>
 
-                  {/* Learn More Button */}
+                  {/* Learn More Button with Modal Trigger */}
                   <motion.button
+                    onClick={() => setSelectedService(service)}
                     className={`w-full mt-6 py-3 px-4 rounded-xl font-medium text-sm bg-gradient-to-r ${service.color} text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]`}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Learn More
+                    View Packages & Pricing
                   </motion.button>
                 </div>
 
-                {/* Background Pattern */}
-                <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
-                  <div className="w-24 h-24 bg-gradient-to-br from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 rounded-full"></div>
-                </div>
+                {/* Remove Background Pattern that's causing empty circles */}
+                
               </div>
 
               {/* Floating Number Badge */}
@@ -275,7 +435,118 @@ export default function Services() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator Dots */}
+              {/* Services Pricing Modal */}
+        {selectedService && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            onClick={() => setSelectedService(null)}
+          >
+            <motion.div
+              className="bg-white dark:bg-slate-800 rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${selectedService.bgColor} dark:bg-gradient-to-br dark:${selectedService.darkBgColor} flex items-center justify-center`}>
+                    <span className="text-2xl">{selectedService.icon}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                      {selectedService.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      Choose the perfect package for your needs
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedService(null)}
+                  className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Pricing Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {selectedService.packages.map((pkg, index) => (
+                  <motion.div
+                    key={pkg.name}
+                    className={`relative p-6 rounded-2xl border-2 transition-all duration-300 ${
+                      index === 1 
+                        ? `border-gradient-to-br ${selectedService.color} bg-gradient-to-br ${selectedService.bgColor} dark:bg-gradient-to-br dark:${selectedService.darkBgColor}` 
+                        : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                    }`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ y: -4 }}
+                  >
+                    {/* Popular Badge */}
+                    {index === 1 && (
+                      <div className={`absolute -top-3 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r ${selectedService.color} text-white text-xs font-semibold rounded-full`}>
+                        Most Popular
+                      </div>
+                    )}
+
+                    <div className="text-center mb-6">
+                      <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                        {pkg.name}
+                      </h4>
+                      <p className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+                        {pkg.price}
+                      </p>
+                      <p className="text-slate-600 dark:text-slate-300 text-sm">
+                        {pkg.description}
+                      </p>
+                    </div>
+
+                    <ul className="space-y-3 mb-6">
+                      {pkg.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-3 text-sm">
+                          <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${selectedService.color} flex-shrink-0`}></div>
+                          <span className="text-slate-700 dark:text-slate-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <button
+                      className={`w-full py-3 px-4 rounded-xl font-semibold transition-all duration-300 ${
+                        index === 1
+                          ? `bg-gradient-to-r ${selectedService.color} text-white shadow-lg hover:shadow-xl`
+                          : 'bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600'
+                      }`}
+                    >
+                      Get Started
+                    </button>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Contact CTA */}
+              <div className="text-center mt-8 p-6 bg-slate-50 dark:bg-slate-700 rounded-xl">
+                <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
+                  Need a custom solution?
+                </h4>
+                <p className="text-slate-600 dark:text-slate-300 mb-4">
+                  Let's discuss your specific requirements and create a tailored package.
+                </p>
+                <button className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${selectedService.color} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300`}>
+                  📞 Schedule Free Consultation
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+
+        {/* Scroll Indicator Dots */}
       <div className="absolute right-8 top-1/2 transform -translate-y-1/2 hidden lg:flex flex-col gap-3">
         {services.map((_, index) => (
           <motion.div
