@@ -76,7 +76,202 @@ const projectsData = [
       role: "Software Developer at Meta"
     }
   },
-  // Add other projects here with same structure...
+  
+  {
+    id: "code-review-ai", 
+    slug: "code-review-ai",
+    title: "Code Review AI",
+    category: "code",
+    summary: "Intelligent code optimization platform that analyzes, reviews, and enhances code quality before deployment using advanced AI algorithms.",
+    heroImage: "/assets/codereviewai1.png",
+    images: [
+      "/assets/codereviewai1.png",
+      "/assets/codereviewai2.png",
+      "/assets/codereviewai3.png", 
+      "/assets/codereviewai4.png"
+    ],
+    tech: ["React", "Node.js", "AI/ML", "Docker", "GitHub API", "AWS Lambda", "PostgreSQL"],
+    timeline: "3 months",
+    client: "Enterprise Development Teams",
+    metric: { value: "-80%", label: "Production Bugs" },
+    
+    description: "Code Review AI transforms the development process by providing intelligent, automated code analysis that catches issues before they reach production. Our platform combines advanced AI with industry best practices to optimize code quality, security, and performance automatically.",
+    
+    challenges: [
+      "Analyzing complex, multi-language codebases with high accuracy and contextual understanding",
+      "Providing actionable, specific improvement suggestions rather than generic warnings",
+      "Integrating seamlessly with existing development workflows without disrupting team productivity",
+      "Handling diverse coding styles and frameworks across different programming languages",
+      "Scaling analysis capabilities to support enterprise-level codebases and team sizes"
+    ],
+    
+    solutions: [
+      "Built advanced static analysis engine powered by machine learning trained on millions of code repositories",
+      "Created intelligent suggestion system that provides contextual, actionable recommendations with code examples",
+      "Developed seamless CI/CD pipeline integration with support for GitHub, GitLab, and Bitbucket workflows", 
+      "Implemented multi-language parsing engine supporting 15+ programming languages and frameworks",
+      "Engineered scalable cloud architecture supporting enterprise codebases with millions of lines of code"
+    ],
+    
+    features: [
+      "🔍 Automated Code Analysis - Deep analysis of code quality, security, and performance issues",
+      "🚨 Real-time Issue Detection - Catch bugs, vulnerabilities, and anti-patterns instantly",
+      "💡 Smart Optimization Suggestions - Get specific, actionable recommendations with examples",
+      "🔧 CI/CD Pipeline Integration - Seamlessly integrate with your existing development workflow",
+      "📊 Code Quality Metrics - Track code health with comprehensive quality scoring",
+      "🛡️ Security Vulnerability Scanning - Detect security issues before they reach production",
+      "📝 Detailed Review Reports - Get comprehensive analysis reports for stakeholders",
+      "⚡ Lightning-Fast Processing - Analyze thousands of lines of code in seconds",
+      "🔄 Continuous Monitoring - Monitor code quality across all branches and commits",
+      "👥 Team Collaboration Tools - Share insights and track improvements across your team"
+    ],
+    
+    results: [
+      "80% reduction in production bugs across all client development teams",
+      "60% faster code review process, allowing teams to ship features more quickly",
+      "40% improvement in overall code maintainability and technical debt reduction",
+      "Used by 500+ development teams globally, from startups to Fortune 500 companies",
+      "92% of critical security vulnerabilities caught before reaching production environments",
+      "Average code quality scores improved by 35% within first month of implementation"
+    ],
+    
+    testimonial: {
+      text: "Code Review AI has become an essential part of our development process. It catches subtle issues that even our senior developers miss and has dramatically improved our code quality. The AI suggestions are incredibly accurate and always actionable.",
+      author: "Mike Johnson", 
+      role: "Lead Developer at TechCorp Solutions"
+    }
+  },
+  
+  {
+    id: "interior-portfolio",
+    slug: "interior-design-portfolio", 
+    title: "Interior Design Portfolio",
+    category: "design",
+    summary: "Stunning portfolio website for interior designers showcasing projects with immersive galleries and client testimonials.",
+    heroImage: "/assets/interior1.png",
+    images: [
+      "/assets/interior1.png",
+      "/assets/interior2.png"
+    ],
+    tech: ["Next.js", "Framer Motion", "Tailwind CSS", "Sanity CMS", "Vercel", "Cloudinary"],
+    timeline: "2 months", 
+    client: "Luxury Interior Design Studio",
+    metric: { value: "+250%", label: "Client Inquiries" },
+    
+    description: "A visually stunning, conversion-focused portfolio website that transforms how interior designers showcase their work. Built with immersive galleries, seamless user experience, and strategic design elements that convert visitors into high-value clients consistently.",
+    
+    challenges: [
+      "Showcasing high-resolution interior design images while maintaining fast loading speeds across devices",
+      "Creating immersive, magazine-quality project galleries that engage visitors emotionally", 
+      "Optimizing the mobile viewing experience for design portfolios without compromising visual impact",
+      "Building a content management system that allows easy project updates without technical knowledge",
+      "Implementing SEO strategies specific to local interior design market and luxury clientele"
+    ],
+    
+    solutions: [
+      "Implemented advanced image optimization with progressive loading and WebP format conversion",
+      "Created interactive before/after project showcases with smooth animations and zoom capabilities",
+      "Built responsive design system with touch-friendly galleries optimized for mobile viewing",
+      "Developed intuitive CMS integration allowing drag-and-drop project management and instant updates",
+      "Engineered local SEO optimization targeting high-value interior design keywords and local markets"
+    ],
+    
+    features: [
+      "🖼️ Immersive Project Galleries - Showcase designs with magazine-quality presentation",
+      "📱 Mobile-Optimized Viewing - Perfect experience across all devices and screen sizes", 
+      "🎨 Interactive Before/After Sliders - Dramatic project transformations with smooth transitions",
+      "💬 Client Testimonial System - Build trust with authentic client success stories",
+      "📞 Integrated Contact Forms - Capture leads with strategically placed conversion points",
+      "🔍 Advanced Image Optimization - Lightning-fast loading without compromising quality",
+      "📊 Analytics Integration - Track visitor behavior and optimize conversion paths",
+      "⚡ Content Management System - Easy project updates without technical knowledge",
+      "🎯 SEO Optimization - Rank higher for local interior design searches",
+      "🏆 Award-Winning Design - Modern, luxury aesthetic that reflects design expertise"
+    ],
+    
+    results: [
+      "250% increase in qualified client inquiries within first three months of launch",
+      "40% longer average session duration indicating higher visitor engagement", 
+      "90% improvement in mobile conversion rates compared to previous portfolio site",
+      "Featured in top interior design websites and industry publications",
+      "65% of new clients now discover the studio through the website vs referrals",
+      "Average project value increased by 35% due to improved brand perception"
+    ],
+    
+    testimonial: {
+      text: "This portfolio website completely transformed my interior design business. The quality of inquiries has improved dramatically, and I'm consistently booking higher-value projects. Clients often mention how impressed they were by the website before even meeting me.",
+      author: "Emma Rodriguez",
+      role: "Principal Interior Designer"
+    }
+  },
+  
+  {
+    id: "freshly-app",
+    slug: "freshly-mobile-app",
+    title: "Freshly App",
+    category: "mobile",
+    summary: "Fresh produce delivery app connecting users with local farmers for daily fresh fruits, vegetables, and healthy lifestyle habits.",
+    heroImage: "/assets/freshly-app-mockups.png", 
+    images: [
+      "/assets/freshly-app-mockups.png",
+      "/assets/freshly-1.png",
+      "/assets/freshly-2.png",
+      "/assets/freshly-3.png",
+      "/assets/freshly-4.png", 
+      "/assets/freshly-5.png",
+      "/assets/freshly-6.png"
+    ],
+    tech: ["React Native", "Node.js", "MongoDB", "Stripe", "Google Maps API", "Firebase", "AWS"],
+    timeline: "5 months",
+    client: "Fresh Food Startup Network", 
+    metric: { value: "+400%", label: "Daily Orders" },
+    
+    description: "Freshly App revolutionizes healthy eating by connecting health-conscious consumers directly with local farmers for daily fresh produce delivery. The app combines convenient ordering, habit tracking, and personalized nutrition guidance to make healthy eating effortless and sustainable.",
+    
+    challenges: [
+      "Building real-time inventory management system synchronized across multiple local farmers and suppliers",
+      "Creating seamless delivery scheduling that coordinates with local farmer harvest cycles and delivery routes",
+      "Developing gamified habit tracking system that motivates long-term healthy eating behaviors", 
+      "Integrating complex payment processing supporting multiple vendors while maintaining simple user experience",
+      "Ensuring food safety and quality standards while scaling across multiple geographic regions"
+    ],
+    
+    solutions: [
+      "Implemented intelligent inventory management system with real-time farmer updates and predictive ordering",
+      "Built advanced delivery route optimization using machine learning to coordinate farmer schedules with user preferences",
+      "Created engaging habit tracking system with rewards, challenges, and personalized nutrition recommendations",
+      "Developed sophisticated multi-vendor payment processing with automatic farmer payouts and transparent pricing",
+      "Engineered comprehensive quality assurance system with farmer verification and user feedback integration"
+    ],
+    
+    features: [
+      "🥬 Fresh Produce Catalog - Browse seasonal, locally-sourced fruits and vegetables daily",
+      "📅 Flexible Delivery Scheduling - Schedule deliveries that fit your lifestyle and preferences",
+      "🎯 Daily Habit Tracking - Monitor healthy eating goals with gamified progress tracking", 
+      "🚚 Real-time Delivery Tracking - Know exactly when your fresh produce will arrive",
+      "💳 Secure Payment Processing - Safe, simple payments supporting multiple local vendors",
+      "👨‍🌾 Local Farmer Profiles - Connect with and support farmers in your community",
+      "🏆 Healthy Lifestyle Rewards - Earn points and unlock benefits for consistent healthy choices",
+      "📊 Nutrition Analytics - Track nutritional intake and receive personalized recommendations",
+      "🔔 Smart Notifications - Reminders for orders, deliveries, and healthy eating goals",
+      "🌱 Sustainability Tracking - Monitor your environmental impact through local sourcing"
+    ],
+    
+    results: [
+      "400% increase in daily orders within first three months across all launch cities",
+      "25,000+ active users generating consistent revenue across 5 metropolitan areas",
+      "4.8/5 app store rating with over 1,000+ verified user reviews and testimonials",
+      "85% user retention rate after first month, indicating strong product-market fit",
+      "Average order value increased by 45% through personalized recommendations and habit tracking",
+      "Partnered with 150+ local farmers creating sustainable income streams in rural communities"
+    ],
+    
+    testimonial: {
+      text: "Freshly App has completely transformed how my family eats. Getting farm-fresh produce delivered daily is so convenient, and the habit tracking keeps us motivated to make healthy choices. My kids actually get excited about eating vegetables now!",
+      author: "David Park",
+      role: "Health-Conscious Parent & Fitness Enthusiast"
+    }
+  }
 ];
 
 export default function ProjectDetail() {
