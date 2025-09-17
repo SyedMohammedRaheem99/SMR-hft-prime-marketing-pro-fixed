@@ -77,7 +77,7 @@ export default function ImageCarousel({ images }) {
           <>
             <motion.button
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-slate-900/90 p-3 rounded-full shadow-lg backdrop-blur-sm border border-white/50 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-slate-900/90 p-3 rounded-full shadow-lg backdrop-blur-sm border border-white/50 hover:opacity-100 transition-all duration-300 hover:scale-110"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Previous image"
@@ -89,7 +89,7 @@ export default function ImageCarousel({ images }) {
 
             <motion.button
               onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-slate-900/90 p-3 rounded-full shadow-lg backdrop-blur-sm border border-white/50 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-slate-900/90 p-3 rounded-full shadow-lg backdrop-blur-sm border border-white/50 hover:opacity-100 transition-all duration-300 hover:scale-110"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Next image"
@@ -105,7 +105,7 @@ export default function ImageCarousel({ images }) {
         {images.length > 1 && (
           <motion.button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 p-2 rounded-full shadow-lg backdrop-blur-sm border border-white/50 opacity-0 group-hover:opacity-100 transition-all duration-300"
+            className="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 p-2 rounded-full shadow-lg backdrop-blur-sm border border-white/50 hover:opacity-100 transition-all duration-300"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
