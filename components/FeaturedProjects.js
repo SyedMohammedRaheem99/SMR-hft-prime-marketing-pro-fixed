@@ -1,20 +1,30 @@
-// components/FeaturedProjects.js
+// components/FeaturedProjects.js - Final Complete Version
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-// Fallback projects data in case import fails
-const fallbackProjects = [
+// Complete projects data with all images and comprehensive content
+const projectsData = [
   {
     id: "master-ai",
     slug: "master-with-ai", 
     title: "Master with AI",
     category: "ai",
-    summary: "AI-powered learning platform delivering instant, no-fluff courses with real-world results.",
+    summary: "Revolutionary AI-powered learning platform delivering instant, no-fluff courses with real-world results through personalized AI tutoring.",
     heroImage: "/assets/masterai1.png",
-    tech: ["Next.js", "AI/ML", "OpenAI"],
+    images: [
+      "/assets/masterai1.png",
+      "/assets/masterai2.png", 
+      "/assets/masterai3.png",
+      "/assets/masterai4.png",
+      "/assets/masterai5.png",
+      "/assets/masterai6.png",
+      "/assets/masterai7.png"
+    ],
+    tech: ["Next.js", "AI/ML", "OpenAI GPT-4", "Stripe", "PostgreSQL", "Tailwind CSS"],
     timeline: "4 months",
+    client: "EdTech Innovation Labs",
     metric: { value: "+300%", label: "Learning Speed" }
   },
   {
@@ -22,21 +32,33 @@ const fallbackProjects = [
     slug: "code-review-ai",
     title: "Code Review AI", 
     category: "code",
-    summary: "Intelligent code optimization platform that analyzes and enhances code quality before deployment.",
+    summary: "Intelligent code optimization platform that analyzes, reviews, and enhances code quality before deployment using advanced AI algorithms.",
     heroImage: "/assets/codereviewai1.png",
-    tech: ["React", "Node.js", "AI/ML"],
+    images: [
+      "/assets/codereviewai1.png",
+      "/assets/codereviewai2.png",
+      "/assets/codereviewai3.png", 
+      "/assets/codereviewai4.png"
+    ],
+    tech: ["React", "Node.js", "AI/ML", "Docker", "GitHub API", "AWS Lambda"],
     timeline: "3 months",
-    metric: { value: "-80%", label: "Bugs in Production" }
+    client: "Enterprise Development Teams",
+    metric: { value: "-80%", label: "Production Bugs" }
   },
   {
     id: "interior-portfolio",
-    slug: "interior-design-portfolio",
+    slug: "interior-design-portfolio", 
     title: "Interior Design Portfolio",
-    category: "design", 
-    summary: "Stunning portfolio website showcasing interior design projects with immersive galleries.",
+    category: "design",
+    summary: "Stunning portfolio website for interior designers showcasing projects with immersive galleries and client testimonials.",
     heroImage: "/assets/interior1.png",
-    tech: ["Next.js", "Framer Motion", "Tailwind CSS"],
-    timeline: "2 months",
+    images: [
+      "/assets/interior1.png",
+      "/assets/interior2.png"
+    ],
+    tech: ["Next.js", "Framer Motion", "Tailwind CSS", "Sanity CMS", "Vercel"],
+    timeline: "2 months", 
+    client: "Luxury Interior Design Studio",
     metric: { value: "+250%", label: "Client Inquiries" }
   },
   {
@@ -44,10 +66,20 @@ const fallbackProjects = [
     slug: "freshly-mobile-app",
     title: "Freshly App",
     category: "mobile",
-    summary: "Fresh produce delivery app connecting users with local farmers for daily fresh deliveries.",
+    summary: "Fresh produce delivery app connecting users with local farmers for daily fresh fruits, vegetables, and healthy lifestyle habits.",
     heroImage: "/assets/freshly-app-mockups.png", 
-    tech: ["React Native", "Node.js", "MongoDB"],
+    images: [
+      "/assets/freshly-app-mockups.png",
+      "/assets/freshly-1.png",
+      "/assets/freshly-2.png",
+      "/assets/freshly-3.png",
+      "/assets/freshly-4.png", 
+      "/assets/freshly-5.png",
+      "/assets/freshly-6.png"
+    ],
+    tech: ["React Native", "Node.js", "MongoDB", "Stripe", "Google Maps API"],
     timeline: "5 months",
+    client: "Fresh Food Startup Network", 
     metric: { value: "+400%", label: "Daily Orders" }
   }
 ];
@@ -55,28 +87,7 @@ const fallbackProjects = [
 export default function FeaturedProjects() {
   const [hoveredProject, setHoveredProject] = useState(null);
   const [filter, setFilter] = useState("all");
-  const [filteredProjects, setFilteredProjects] = useState([]);
-  const [projects, setProjects] = useState([]);
-
-  // Load projects data safely
-  useEffect(() => {
-    try {
-      // Try to import projects, fall back to default if import fails
-      import("../utils/projects").then((module) => {
-        const importedProjects = module.default || fallbackProjects;
-        setProjects(importedProjects);
-        setFilteredProjects(importedProjects);
-      }).catch(() => {
-        // If import fails, use fallback
-        setProjects(fallbackProjects);
-        setFilteredProjects(fallbackProjects);
-      });
-    } catch (error) {
-      // If dynamic import not supported, use fallback
-      setProjects(fallbackProjects);
-      setFilteredProjects(fallbackProjects);
-    }
-  }, []);
+  const [filteredProjects, setFilteredProjects] = useState(projectsData);
 
   // Enhanced categories for your specific projects
   const categories = [
@@ -88,14 +99,12 @@ export default function FeaturedProjects() {
   ];
 
   useEffect(() => {
-    if (projects.length > 0) {
-      if (filter === "all") {
-        setFilteredProjects(projects);
-      } else {
-        setFilteredProjects(projects.filter(p => p.category === filter));
-      }
+    if (filter === "all") {
+      setFilteredProjects(projectsData);
+    } else {
+      setFilteredProjects(projectsData.filter(p => p.category === filter));
     }
-  }, [filter, projects]);
+  }, [filter]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -212,7 +221,7 @@ export default function FeaturedProjects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          key={filter} // Re-animate when filter changes
+          key={filter}
         >
           <AnimatePresence>
             {filteredProjects.map((project, index) => (
@@ -230,7 +239,7 @@ export default function FeaturedProjects() {
                     {/* Project Image */}
                     <div className="relative w-full h-56 sm:h-64 overflow-hidden bg-slate-100 dark:bg-slate-700">
                       <motion.div
-                        className="absolute inset-0"
+                        className="relative w-full h-full"
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.6 }}
                       >
@@ -259,7 +268,7 @@ export default function FeaturedProjects() {
                         </span>
                       </div>
 
-                      {/* View Project Button - Appears on Hover */}
+                      {/* View Project Button */}
                       <motion.div
                         className="absolute inset-0 flex items-center justify-center"
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -403,7 +412,7 @@ export default function FeaturedProjects() {
           </p>
         </motion.div>
 
-        {/* Elegant Success Tagline - Replaces boring stats boxes */}
+        {/* Elegant Success Tagline */}
         <motion.div
           className="text-center mt-20 pt-16 border-t border-slate-200 dark:border-slate-700"
           initial={{ opacity: 0, y: 30 }}
@@ -466,4 +475,3 @@ export default function FeaturedProjects() {
       </div>
     </section>
   );
-}
