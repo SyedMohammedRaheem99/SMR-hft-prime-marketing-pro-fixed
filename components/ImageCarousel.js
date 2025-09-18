@@ -1,4 +1,3 @@
-// components/ImageCarousel.js - Minimal Version
 import { useState } from "react";
 import Image from "next/image";
 
